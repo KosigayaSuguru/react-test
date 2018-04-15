@@ -24,23 +24,38 @@ export default class extends Component {
       return <div />;
     }
 
+    // li の奇数行用スタイル
+    const listStyle = {
+      margin: "0 0 0.5em 0",
+      fontSize: "0.75em"
+    };
+    // li の偶数行用スタイル
+    const listStyle2 = Object.assign({}, listStyle, {
+      backgroundColor: "#ddffdd"
+    });
+
     // liタグ部分の生成
     let t = this.state.rss.data.items.map((item, idx) => {
       return (
         <li
           key={idx}
           // 偶数行に色付けする
-          style={idx % 2 === 1 ? { backgroundColor: "#ddffdd" } : {}}
+          style={idx % 2 === 1 ? listStyle2 : listStyle}
         >
           <a href={item.link} target={"_blank"}>
             {item.title}
           </a>
+          <br />公開日：{item.pubDate}
         </li>
       );
     });
     return (
       <div>
         <span onClick={e => this.reload()}>reload</span>
+        <br />
+        <span style={{fontSize:"0.5em", color:"red"}}>
+          ※rss2jsonを経由してるせいか公開日がおかしい（日本時間だと+9時間が正しい）
+        </span>
         <ul style={{ textAlign: "left" }}>{t}</ul>
       </div>
     );
@@ -49,7 +64,7 @@ export default class extends Component {
   reload() {
     console.log("reload");
     // rss2jsonのキャッシュ対策でverパラメータつける
-    axios.get(rssUrl + "&ver=" + Date.now()).then(res => {
+    axios.get(rssUrl + "?ver=" + Date.now() / 100).then(res => {
       this.setState({ rss: res });
     });
   }
