@@ -10,7 +10,8 @@ export default class extends Component {
   constructor() {
     super();
     this.state = {
-      rss: null
+      rss: null,
+      loading: false
     };
   }
 
@@ -19,6 +20,10 @@ export default class extends Component {
   }
 
   render() {
+    if (this.state.loading) {
+      return <div className="loader">Loading...</div>;
+    }
+
     // rssの読み込みが終わってない（rss2jsonからレスポンスが返って来てない）時用
     if (this.state.rss === null) {
       return <div />;
@@ -53,7 +58,7 @@ export default class extends Component {
       <div>
         <span onClick={e => this.reload()}>reload</span>
         <br />
-        <span style={{fontSize:"0.5em", color:"red"}}>
+        <span style={{ fontSize: "0.5em", color: "red" }}>
           ※rss2jsonを経由してるせいか公開日がおかしい（日本時間だと+9時間が正しい）
         </span>
         <ul style={{ textAlign: "left" }}>{t}</ul>
@@ -65,7 +70,8 @@ export default class extends Component {
     console.log("reload");
     // rss2jsonのキャッシュ対策でverパラメータつける
     axios.get(rssUrl + "?ver=" + Date.now() / 100).then(res => {
-      this.setState({ rss: res });
+      this.setState({ rss: res, loading: false });
     });
+    this.setState({ loading: true });
   }
 }
