@@ -8,8 +8,11 @@ export function mapStateToProps(state) {
 }
 export function mapDispatchToProps(dispatch) {
   return {
-    onClick(value) {
+    countup(value) {
       dispatch(send(value));
+    },
+    countupDouble(value) {
+      dispatch(send(value*2));
     }
   };
 }

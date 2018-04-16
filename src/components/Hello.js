@@ -20,7 +20,8 @@ export class Hello extends React.Component {
   }
 
   click(e) {
-    this.props.onClick(this.props.value + 1);
+    console.log(this.props)
+    this.props.countup(this.props.value + 1);
   }
 }
 
