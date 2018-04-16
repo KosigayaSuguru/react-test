@@ -6,22 +6,36 @@ const styleH1 = {
   margin: "0px"
 };
 
-const styleClickMe = { margin: "5px 0 5px 0", color: "orange" };
+const styleClickMe = { margin: "5px 0 5px 0" };
 export class Hello extends React.Component {
   render() {
     return (
       <div>
-        <div onClick={e => this.click(e)} style={styleClickMe}>
-          click me@redux-test count:{this.props.value}
+        <div style={styleClickMe}>
+          <span className="count" onClick={e => this.clickPlus(e)}>
+            {" "}
+            +{" "}
+          </span>
+          <span>click</span>
+          <span className="count" onClick={e => this.clickMinus(e)}>
+            {" "}
+            -{" "}
+          </span>
+          @redux-test count:{this.props.value}
         </div>
         <h1 style={styleH1}>Hello {this.props.name}!</h1>
       </div>
     );
   }
 
-  click(e) {
-    console.log(this.props)
-    this.props.countup(this.props.value + 1);
+  clickPlus(e) {
+    console.log(this.props);
+    this.props.countup(this.props.value);
+  }
+
+  clickMinus(e) {
+    console.log(this.props);
+    this.props.countdown(this.props.value);
   }
 }
 

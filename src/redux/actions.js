@@ -1,13 +1,23 @@
 /* Actionsの実装 */
 
 // Action名の定義
-const SEND = 'SEND';
+const COUNTUP = "COUNTUP";
+const COUNTDOWN = "COUNTDOWN";
 
 // Action Creators
-export default function (value) {
+export function countup(value) {
   // Action
   return {
-    type: SEND,
-    value,
+    type: COUNTUP,
+    value
+  };
+}
+
+// Action Creators
+export function countdown(value) {
+  // Action
+  return {
+    type: COUNTDOWN,
+    value
   };
 }

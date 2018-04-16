@@ -1,4 +1,4 @@
-import send from "./actions";
+import { countup, countdown } from "./actions";
 
 // Connect to Redux
 export function mapStateToProps(state) {
@@ -9,10 +9,10 @@ export function mapStateToProps(state) {
 export function mapDispatchToProps(dispatch) {
   return {
     countup(value) {
-      dispatch(send(value));
+      dispatch(countup(value));
     },
-    countupDouble(value) {
-      dispatch(send(value*2));
+    countdown(value) {
+      dispatch(countdown(value));
     }
   };
 }

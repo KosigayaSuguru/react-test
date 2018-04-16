@@ -1,4 +1,4 @@
 export const styles = {
-  fontFamily: "Meiryo UI",
+  fontFamily: "serif",
   textAlign: "center"
 };
