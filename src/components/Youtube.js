@@ -21,15 +21,15 @@ export default class extends Component {
   render() {
     return (
       <div>
-        <div>
-          this page is component1 {this.props.props1} {this.state.aaa}
-        </div>
-
         <div
           style={{ margin: "5px 0 5px 0", color: "orange" }}
           onClick={e => this.clickHandler()}
         >
           click me
+        </div>
+
+        <div>
+          this page is component1 {this.props.props1} {this.state.aaa}
         </div>
 
         <div>

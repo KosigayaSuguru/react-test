@@ -1,7 +1,7 @@
 import React from "react";
-import Component1 from "../components/Component1";
+import Youtube from "../components/Youtube";
 export default () => (
   <div>
-    <Component1 props1="propss1" />
+    <Youtube props1="propss1" />
   </div>
 );

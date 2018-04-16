@@ -6,6 +6,10 @@ import Route2 from "../routes/Route2";
 import Route3 from "../routes/Route3";
 import Always from "../routes/Always";
 
+// redux連携用
+import { connect } from "react-redux";
+import { mapDispatchToProps, mapStateToProps } from "../redux/connects";
+
 // スタイル読み込み
 import { styles } from "../components/style/common";
 
@@ -13,30 +17,37 @@ import { styles } from "../components/style/common";
 let myStyles = Object.assign({}, styles);
 myStyles.padding = "0 20px 0 20px";
 
-export const App = () => (
-  <BrowserRouter>
-    <div>
-      <ul>
-        <li>
-          <Link to="/">/</Link>
-        </li>
-        <li>
-          <Link to="/route1">route1</Link>
-        </li>
-        <li>
-          <Link to="/route2">route2</Link>
-        </li>
-        <li>
-          <Link to="/route3">route3</Link>
-        </li>
-      </ul>
-      <div style={myStyles}>
-        <Route component={Always} />
-        <Route exact path="/" component={Hello} />
-        <Route path="/route1" component={Route1} />
-        <Route path="/route2" component={Route2} />
-        <Route path="/route3" component={Route3} />
-      </div>
-    </div>
-  </BrowserRouter>
-);
+export class App extends React.Component {
+  render() {
+    return (
+      <BrowserRouter>
+        <div>
+          <ul>
+            <li>
+              <Link to="/">/</Link>
+            </li>
+            <li>
+              <Link to="/route1">route1</Link>
+            </li>
+            <li>
+              <Link to="/route2">route2</Link>
+            </li>
+            <li>
+              <Link to="/route3">route3</Link>
+            </li>
+          </ul>
+          <div style={myStyles}>
+            <Route component={Always} />
+            <Route exact path="/" component={Hello} />
+            <Route path="/route1" component={Route1} />
+            <Route path="/route2" component={Route2} />
+            <Route path="/route3" component={Route3} />
+          </div>
+        </div>
+      </BrowserRouter>
+    );
+  }
+}
+
+// reduxと連携させる
+export default connect(mapStateToProps, mapDispatchToProps)(App);

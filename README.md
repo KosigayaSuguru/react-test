@@ -4,9 +4,21 @@
 
 ### Redux連携
 
-> 一番わかりやすい
+感覚的にはreduxとreactコンポーネント間の値の受け渡しを、connect()を使って定義するみたいな感じ。。  
+
+* mapStateToProps を使って、storeの値をreactのコンポーネントのpropsに引き渡す
+* mapDispatchToProps を使って、実行したいdispatchをreactのコンポーネントのpropsに引き渡す
+  ※引き渡されたメソッドを実行すると、storeの状態が更新されるみたいなイメージ
+  ※厳密にいうと、dispatchの結果が反映された新しいstoreに差し変わる（はず
+
+> 一番わかりやすい説明
 
 https://mae.chab.in/archives/2885
+
+> サンプルコード
+
+* https://github.com/reactjs/react-router-redux/tree/master/examples/basic
+  ※"一番わかりやすい"より実践的
 
 > 参考
 

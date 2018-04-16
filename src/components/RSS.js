@@ -7,8 +7,8 @@ const rssUrl =
   "https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fheadlines.yahoo.co.jp%2Frss%2Fall-dom.xml";
 
 export default class extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       rss: null,
       loading: false
@@ -20,6 +20,7 @@ export default class extends Component {
   }
 
   render() {
+    // console.log(this.props.onClick)
     if (this.state.loading) {
       return <div className="loader">Loading...</div>;
     }
