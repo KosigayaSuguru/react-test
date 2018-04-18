@@ -8,7 +8,7 @@ import Always from "../routes/Always";
 
 // redux連携用
 import { connect } from "react-redux";
-import { mapDispatchToProps, mapStateToProps } from "../redux/connects";
+import { mapDispatchToProps, mapStateToProps } from "../redux/count/connects";
 
 // スタイル読み込み
 import { styles } from "../components/style/common";

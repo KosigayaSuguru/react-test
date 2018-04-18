@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { mapDispatchToProps, mapStateToProps } from "../redux/connects";
+import { mapDispatchToProps, mapStateToProps } from "../redux/count/connects";
 
 const styleH1 = {
   margin: "0px"

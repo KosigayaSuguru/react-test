@@ -1,8 +1,8 @@
 /* Actionsの実装 */
 
 // Action名の定義
-const COUNTUP = "COUNTUP";
-const COUNTDOWN = "COUNTDOWN";
+export const COUNTUP = "COUNTUP";
+export const COUNTDOWN = "COUNTDOWN";
 
 // Action Creators
 export function countup(value) {
