@@ -3,7 +3,7 @@ import { countup, countdown } from "./actions";
 // Connect to Redux
 export function mapStateToProps(state) {
   return {
-    value: state.value
+    value: state.count.value
   };
 }
 
