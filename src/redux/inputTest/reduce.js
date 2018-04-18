@@ -4,12 +4,14 @@ import * as Actions from "./actions";
 
 // inputTest用
 const initState = {
-  data: {}
+  data: {},
+  dataConfirm: {},
+  updated: false
 };
 export function inputTestReducer(state = initState, action) {
   switch (action.type) {
     case Actions.INPUT_TEST:
-      return Object.assign({}, state, {});
+      return Object.assign({}, state, action.value);
     default:
       return state;
   }

@@ -4,6 +4,7 @@ import Hello from "../components/Hello";
 import Route1 from "../routes/Route1";
 import Route2 from "../routes/Route2";
 import Route3 from "../routes/Route3";
+import Route4 from "../routes/Route4";
 import Always from "../routes/Always";
 
 // redux連携用
@@ -45,6 +46,11 @@ export class App extends React.Component {
                     route3
                   </NavLink>
                 </li>
+                <li>
+                  <NavLink to="/route4" activeClassName="active">
+                    route4
+                  </NavLink>
+                </li>
               </ul>
             </nav>
           </header>
@@ -54,6 +60,7 @@ export class App extends React.Component {
             <Route path="/route1" component={Route1} />
             <Route path="/route2" component={Route2} />
             <Route path="/route3" component={Route3} />
+            <Route path="/route4" component={Route4} />
           </main>
         </div>
       </BrowserRouter>
