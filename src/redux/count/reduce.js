@@ -17,16 +17,3 @@ export function countReducer(state = { value: 0 }, action) {
       return state;
   }
 }
-
-// inputTest用
-const initState = {
-  data: {}
-};
-export function inputTestReducer(state = initState, action) {
-  switch (action.type) {
-    case Actions.INPUT_TEST:
-      return Object.assign({}, state, {});
-    default:
-      return state;
-  }
-}

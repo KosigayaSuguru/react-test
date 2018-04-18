@@ -1,5 +1,6 @@
 import { createStore, combineReducers } from "redux";
-import { countReducer, inputTestReducer } from "./count/reduce";
+import { countReducer } from "./count/reduce";
+import { inputTestReducer } from "./inputTest/reduce";
 
 /* Storeの実装 */
 let rootReducer = combineReducers({
