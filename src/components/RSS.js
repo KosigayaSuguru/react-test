@@ -32,14 +32,18 @@ export default class extends Component {
 
     // li の奇数行用スタイル
     const listStyle = {
-      margin: "0 0 0.5em 0",
-      fontSize: "0.75em"
+      margin: "0 0 0.5em 0"
     };
     // li の偶数行用スタイル
     const listStyle2 = Object.assign({}, listStyle, {
       backgroundColor: "#ddffdd"
     });
 
+// ページ（RSSコンポーネント）の全体スタイル
+    const pageStyle = {
+      fontFamily: "Meiryo UI",
+      fontSize: "0.8em"
+    };
     // liタグ部分の生成
     let t = this.state.rss.data.items.map((item, idx) => {
       return (
@@ -56,10 +60,12 @@ export default class extends Component {
       );
     });
     return (
-      <div>
-        <span onClick={e => this.reload()}>reload</span>
+      <div style={pageStyle}>
+        <span style={{ fontSize: "1.5em" }} onClick={e => this.reload()}>
+          reload
+        </span>
         <br />
-        <span style={{ fontSize: "0.5em", color: "red" }}>
+        <span style={{ color: "red" }}>
           ※rss2jsonを経由してるせいか公開日がおかしい（日本時間だと+9時間が正しい）
         </span>
         <ul style={{ textAlign: "left" }}>{t}</ul>

@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route, Link } from "react-router-dom";
+import { BrowserRouter, Route, Link, NavLink } from "react-router-dom";
 import Hello from "../components/Hello";
 import Route1 from "../routes/Route1";
 import Route2 from "../routes/Route2";
@@ -15,34 +15,46 @@ import { styles } from "../components/style/common";
 
 // ルータで出力される部分用のスタイル
 let myStyles = Object.assign({}, styles);
-myStyles.padding = "0 20px 0 20px";
+myStyles.margin = "0 20px";
 
 export class App extends React.Component {
   render() {
     return (
       <BrowserRouter>
-        <div>
-          <ul>
-            <li>
-              <Link to="/">/</Link>
-            </li>
-            <li>
-              <Link to="/route1">route1</Link>
-            </li>
-            <li>
-              <Link to="/route2">route2</Link>
-            </li>
-            <li>
-              <Link to="/route3">route3</Link>
-            </li>
-          </ul>
-          <div style={myStyles}>
+        <div id="container">
+          <header>
+            <nav>
+              <ul>
+                <li>
+                  <NavLink exact to="/" activeClassName="active">
+                    /
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/route1" activeClassName="active">
+                    route1
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/route2" activeClassName="active">
+                    route2
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/route3" activeClassName="active">
+                    route3
+                  </NavLink>
+                </li>
+              </ul>
+            </nav>
+          </header>
+          <main style={myStyles}>
             <Route component={Always} />
             <Route exact path="/" component={Hello} />
             <Route path="/route1" component={Route1} />
             <Route path="/route2" component={Route2} />
             <Route path="/route3" component={Route3} />
-          </div>
+          </main>
         </div>
       </BrowserRouter>
     );
